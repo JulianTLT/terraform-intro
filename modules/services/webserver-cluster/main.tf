@@ -3,7 +3,7 @@ terraform {
 }
 
 resource "aws_launch_configuration" "example" {
-  image_id        = "ami-0c55b159cbfafe1f0"
+  image_id        = "ami-4ae27e22"
   instance_type   = var.instance_type
   security_groups = [aws_security_group.instance.id]
   user_data       = data.template_file.user_data.rendered
@@ -20,8 +20,8 @@ data "template_file" "user_data" {
 
   vars = {
     server_port = var.server_port
-    db_address  = data.terraform_remote_state.db.outputs.address
-    db_port     = data.terraform_remote_state.db.outputs.port
+    db_address  = data.terraform_remote_state.db.outputs.db_address
+    db_port     = data.terraform_remote_state.db.outputs.db_port
   }
 }
 

@@ -6,5 +6,5 @@ output "db_port" {
 }
 
 output "password" {
-  value = jsondecode(data.aws_secretsmanager_secret_version.db_password.secret_string)["admin"]
+  value = jsondecode(data.aws_secretsmanager_secret_version.db_password.secret_string)[var.secret-id]
 }
