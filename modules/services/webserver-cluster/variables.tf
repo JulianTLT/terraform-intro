@@ -33,3 +33,19 @@ variable "db_remote_state_key" {
   description = "The path for the database's remote state in S3"
   type        = string
 }
+
+variable "custom_tags" {
+  description = "Custom tags to set instances in ASG"
+  type = map(string)
+  default = {}
+}
+
+variable "enable_autoscaling" {
+  description = "if set to true, enable auto scaling"
+  type = bool
+}
+
+variable "enable_new_user_data" {
+  description = "if set to true, use the new User data script"
+  type = bool
+}
